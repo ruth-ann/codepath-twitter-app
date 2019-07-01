@@ -1,0 +1,202 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+MERGED from [com.codepath.libraries:android-oauth-handler:1.4.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6e0b4eba6a053ddf9cba60201d1f3ed9/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/f03c0afe122b27fcf8a72ca33eca90c5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/b8078f538463c64528f266d797d29f06/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.stetho:stetho:1.5.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/49dbbccc856c8e662d5b318e9aee74ad/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:support-v4:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6f46f8dd4d0cc142eb39f433690df7a1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/5bbb75ec790b55158eb9c3a4c147c8d5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8764b56f239abcaf3f57cc0bb716de2d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8f1d496c40df614b167579598ce0e9fb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/e141079301afada10e786bc9215f3e34/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a07e0c70fd7f0b197852c856efdf71c4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/989bf0d053af8d6f7d188faa45c27491/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/2af0064a4e3bf6ed10d0110f37940511/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/bce0fc168584c707a5c06ceae84bbdea/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/d60ac9239b35c477e7f418c71ce9fce4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/315dc35d99425a97ed3d33b0b45db08d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/e5b410528047f2bf20ccdef6bbb1261a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/06c266379b958b677bfa3e692cf0f4aa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/174636686d72f56b03d5fec3778e3026/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/250bafea1c5a65aaa93385b0a8cdb041/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/dd68c5839c57e3437d9156abe8c1cb1f/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6df0c0bcf672ed3fe6f3214dfb5b05fd/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8f1004c308f315c27faadd46fcbd3a05/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/5b8d2db0e3c5ca7e6712ca1302326d7b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/4768cb03806351e6a7835d57e44fc80c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/37115300e8942130eaef9e3a002f91d8/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/34c62cbea045f6c091bb714a3b0a5192/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/c4a7621e0a5e494e1dcfc475fe61d70e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a2c996781b80223f6b326ed9415fca3c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a7f2210a5831e95adfac1b8b2d394f99/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/bc3a7f4a4f1665612ccf8d5a02ee670c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/045297ba68c7e5f7f6fbcff8d7fac01b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/f0b5a0b8118c7a44e7f760e402780c4f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/3eb245264efb06e7e0c6580ea5e66ee3/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:1-39:12
+	package
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:3:5-51
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:5:5-30
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:7:5-67
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:7:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:8:5-81
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:8:22-78
+application
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:10:5-37:19
+MERGED from [com.facebook.stetho:stetho:1.5.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/49dbbccc856c8e662d5b318e9aee74ad/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho:1.5.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/49dbbccc856c8e662d5b318e9aee74ad/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/dd68c5839c57e3437d9156abe8c1cb1f/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/dd68c5839c57e3437d9156abe8c1cb1f/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6df0c0bcf672ed3fe6f3214dfb5b05fd/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6df0c0bcf672ed3fe6f3214dfb5b05fd/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/dd68c5839c57e3437d9156abe8c1cb1f/AndroidManifest.xml:22:18-91
+	android:label
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:14:9-41
+	android:icon
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:13:9-45
+	android:allowBackup
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:15:9-40
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.codepath.apps.restclienttemplate.LoginActivity
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:17:9-36:20
+	android:label
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:20:13-45
+	android:theme
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:19:13-44
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:18:13-78
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:21:13-25:29
+action#android.intent.action.MAIN
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:22:17-69
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:22:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:24:17-77
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:24:27-74
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:@string/intent_host+data:scheme:@string/intent_scheme
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:26:13-35:29
+action#android.intent.action.VIEW
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:27:17-69
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:27:25-66
+category#android.intent.category.DEFAULT
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:29:17-76
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:29:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:30:17-78
+	android:name
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:30:27-75
+data
+ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:32:17-34:62
+	android:host
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:33:21-55
+	android:scheme
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml:34:21-59
+uses-sdk
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+MERGED from [com.codepath.libraries:android-oauth-handler:1.4.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6e0b4eba6a053ddf9cba60201d1f3ed9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.codepath.libraries:android-oauth-handler:1.4.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6e0b4eba6a053ddf9cba60201d1f3ed9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/f03c0afe122b27fcf8a72ca33eca90c5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/f03c0afe122b27fcf8a72ca33eca90c5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/b8078f538463c64528f266d797d29f06/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/b8078f538463c64528f266d797d29f06/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.stetho:stetho:1.5.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/49dbbccc856c8e662d5b318e9aee74ad/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/49dbbccc856c8e662d5b318e9aee74ad/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6f46f8dd4d0cc142eb39f433690df7a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6f46f8dd4d0cc142eb39f433690df7a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/5bbb75ec790b55158eb9c3a4c147c8d5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/5bbb75ec790b55158eb9c3a4c147c8d5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8764b56f239abcaf3f57cc0bb716de2d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8764b56f239abcaf3f57cc0bb716de2d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8f1d496c40df614b167579598ce0e9fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8f1d496c40df614b167579598ce0e9fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/e141079301afada10e786bc9215f3e34/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/e141079301afada10e786bc9215f3e34/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a07e0c70fd7f0b197852c856efdf71c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a07e0c70fd7f0b197852c856efdf71c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/989bf0d053af8d6f7d188faa45c27491/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/989bf0d053af8d6f7d188faa45c27491/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/2af0064a4e3bf6ed10d0110f37940511/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/2af0064a4e3bf6ed10d0110f37940511/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/bce0fc168584c707a5c06ceae84bbdea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/bce0fc168584c707a5c06ceae84bbdea/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/d60ac9239b35c477e7f418c71ce9fce4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/d60ac9239b35c477e7f418c71ce9fce4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/315dc35d99425a97ed3d33b0b45db08d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/315dc35d99425a97ed3d33b0b45db08d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/e5b410528047f2bf20ccdef6bbb1261a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/e5b410528047f2bf20ccdef6bbb1261a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/06c266379b958b677bfa3e692cf0f4aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/06c266379b958b677bfa3e692cf0f4aa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/174636686d72f56b03d5fec3778e3026/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/174636686d72f56b03d5fec3778e3026/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/250bafea1c5a65aaa93385b0a8cdb041/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/250bafea1c5a65aaa93385b0a8cdb041/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/dd68c5839c57e3437d9156abe8c1cb1f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/dd68c5839c57e3437d9156abe8c1cb1f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6df0c0bcf672ed3fe6f3214dfb5b05fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/6df0c0bcf672ed3fe6f3214dfb5b05fd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8f1004c308f315c27faadd46fcbd3a05/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/8f1004c308f315c27faadd46fcbd3a05/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/5b8d2db0e3c5ca7e6712ca1302326d7b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/5b8d2db0e3c5ca7e6712ca1302326d7b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/4768cb03806351e6a7835d57e44fc80c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/4768cb03806351e6a7835d57e44fc80c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/37115300e8942130eaef9e3a002f91d8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/37115300e8942130eaef9e3a002f91d8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/34c62cbea045f6c091bb714a3b0a5192/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/34c62cbea045f6c091bb714a3b0a5192/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/c4a7621e0a5e494e1dcfc475fe61d70e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/c4a7621e0a5e494e1dcfc475fe61d70e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a2c996781b80223f6b326ed9415fca3c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a2c996781b80223f6b326ed9415fca3c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a7f2210a5831e95adfac1b8b2d394f99/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/a7f2210a5831e95adfac1b8b2d394f99/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/bc3a7f4a4f1665612ccf8d5a02ee670c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/bc3a7f4a4f1665612ccf8d5a02ee670c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/045297ba68c7e5f7f6fbcff8d7fac01b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/045297ba68c7e5f7f6fbcff8d7fac01b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/f0b5a0b8118c7a44e7f760e402780c4f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/f0b5a0b8118c7a44e7f760e402780c4f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/3eb245264efb06e7e0c6580ea5e66ee3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/ruthanna/.gradle/caches/transforms-2/files-2.1/3eb245264efb06e7e0c6580ea5e66ee3/AndroidManifest.xml:20:5-44
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/src/main/AndroidManifest.xml
