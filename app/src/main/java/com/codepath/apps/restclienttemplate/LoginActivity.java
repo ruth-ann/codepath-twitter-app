@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,7 @@ import com.codepath.apps.restclienttemplate.models.SampleModel;
 import com.codepath.apps.restclienttemplate.models.SampleModelDao;
 import com.codepath.oauth.OAuthLoginActionBarActivity;
 
-public class LoginActivity extends OAuthLoginActionBarActivity<RestClient> {
+public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 
 	SampleModelDao sampleModelDao;
 	
@@ -17,18 +18,22 @@ public class LoginActivity extends OAuthLoginActionBarActivity<RestClient> {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-
+		//ra allows you to create a name in the table
 		final SampleModel sampleModel = new SampleModel();
 		sampleModel.setName("CodePath");
+		//ra gives you access to the dao object
+		final SampleModelDao sampleModelDao = ((TwitterApp) getApplicationContext()).getMyDatabase().sampleModelDao();
 
-		sampleModelDao = ((RestApplication) getApplicationContext()).getMyDatabase().sampleModelDao();
 
-		AsyncTask.execute(new Runnable() {
+		//ra room library allows all database stuff to be done on bg thread
+		AsyncTask<SampleModel, Void, Void> task  = new AsyncTask<SampleModel, Void, Void>() {
 			@Override
-			public void run() {
-				sampleModelDao.insertModel(sampleModel);
-			}
-		});
+			protected Void doInBackground(SampleModel... sampleModels) {
+				sampleModelDao.insertModel(sampleModel); //inserts the sample model list into the database
+				return null;
+			};
+		};
+		task.execute(sampleModel); //execute passes it in
 	}
 
 
@@ -43,8 +48,10 @@ public class LoginActivity extends OAuthLoginActionBarActivity<RestClient> {
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
-		// Intent i = new Intent(this, PhotosActivity.class);
-		// startActivity(i);
+		//ra triggered when oauth flow is successfully completed
+		//Toast.makeText(this, "Success", Toast.LENGTH_LONG).show();
+		Intent i = new Intent(this, TimelineActivity.class);
+		startActivity(i);
 	}
 
 	// OAuth authentication flow failed, handle the error
