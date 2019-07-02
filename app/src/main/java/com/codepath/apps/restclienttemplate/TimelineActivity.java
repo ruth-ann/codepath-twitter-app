@@ -1,10 +1,15 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -12,6 +17,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -20,6 +26,8 @@ import cz.msebera.android.httpclient.Header;
 public class TimelineActivity extends AppCompatActivity {
 
     private TwitterClient client;
+    private SwipeRefreshLayout swipeContainer;
+    private final int REQUEST_CODE = 40;
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
     RecyclerView rvTweets;
@@ -45,6 +53,46 @@ public class TimelineActivity extends AppCompatActivity {
 
         populateTimeline();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_tweets, menu);
+        return true;
+    }
+
+    public void onComposeAction(MenuItem mi) {
+        //open composeActivity
+       Intent composeTweet = new Intent (TimelineActivity.this, ComposeActivity.class);
+       startActivityForResult(composeTweet, REQUEST_CODE); //rename this
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent newTweet) {
+        // REQUEST_CODE is defined above
+
+
+
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) { //switch these two, rename compose tweet request code
+            // Extract name value from result extras
+          //  String tweet = newTweet.getExtras().getString("etNewTweet"); // here we should have get parceable extra
+
+            //mock code
+            Tweet resultTweet = (Tweet) Parcels.unwrap(getIntent().getParcelableExtra("new_tweet"));
+            tweets.add(0, resultTweet);
+            tweetAdapter.notifyItemInserted(0);
+            rvTweets.scrollToPosition(0);
+            //
+            //int code = newTweet.getExtras().getInt("code", 0);
+
+            //makeTweet(tweet);
+            // Toast the name to display temporarily on screen
+            Toast.makeText(this, "Tweet successfully made!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
     private void populateTimeline(){
         client.getHomeTimeline(new JsonHttpResponseHandler() {
