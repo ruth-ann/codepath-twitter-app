@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
 import android.text.format.DateUtils;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +21,9 @@ public class Tweet {
     public User user;
     public String createdAt;
     public String relativeDate;
+    public String retweets;
+    public String likes;
+    public String comments;
 
     public Tweet(){
 
@@ -34,8 +38,11 @@ public class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
-      //  Log.i("TwitterApp", jsonObject.toString());
+        Log.i("TwitterApp", jsonObject.toString());
         tweet.relativeDate = getRelativeTimeAgo(tweet.createdAt);
+        tweet.likes = jsonObject.getString("favorite_count");
+        tweet.retweets = jsonObject.getString("retweet_count");
+       // tweet.comments = jsonObject.getString("reply_count");
         return tweet;
 
 

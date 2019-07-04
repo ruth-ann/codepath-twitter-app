@@ -92,6 +92,8 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent newTweet) {
         // REQUEST_CODE is defined above
@@ -118,11 +120,14 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("TwitterClient", response.toString());
+
+
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 //Log.d("TwitterClient", response.toString());
+                Toast.makeText(TimelineActivity.this, "got array", Toast.LENGTH_LONG).show();
 
                 //iterate through the JSON array
                 // for each entry, deserializer the JSON object
@@ -130,11 +135,15 @@ public class TimelineActivity extends AppCompatActivity {
                     //convert each object to a Tweet model
                     //add that Tweet model to our data source
                     //notify the adapter that we've added an item
+                    Toast.makeText(TimelineActivity.this, "got in for loop", Toast.LENGTH_LONG).show();
                     try{
-                        Tweet tweet = Tweet.fromJSON(response.getJSONObject(i));
+                        JSONObject single = response.getJSONObject(i);
+                        Tweet tweet = Tweet.fromJSON(single);
                         tweets.add(tweet);
+                        Toast.makeText(TimelineActivity.this, "Tweet successfully populated!", Toast.LENGTH_LONG).show();
                         tweetAdapter.notifyItemInserted(tweets.size() - 1);
                     }catch (JSONException e){
+                        Toast.makeText(TimelineActivity.this, "got in for catch", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                     }
 
@@ -147,21 +156,25 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 Log.d("TwitterClient", responseString);
+
                 throwable.printStackTrace();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
                 Log.d("TwitterClient", errorResponse.toString());
+
+
                 throwable.printStackTrace();            }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 Log.d("TwitterClient", errorResponse.toString());
+
+
                 throwable.printStackTrace();
             }
         });
-
 
 
     }
@@ -188,7 +201,7 @@ public class TimelineActivity extends AppCompatActivity {
 
 
             public void onFailure(Throwable e) {
-                Log.d("DEBUG", "Fetch timeline error: " + e.toString());
+                Log.d("Timeline fetch error", "Fetch timeline error: " + e.toString());
             }
         });
     }

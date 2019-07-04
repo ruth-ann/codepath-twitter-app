@@ -45,8 +45,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/twitter-redesign-icons (1)/pngs/vector_compose_dm_fab.png" />
-                                      <entry key="outputName" value="ic_comment" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/twitter-redesign-icons (1)/pngs/ic_vector_compose.png" />
+                                      <entry key="outputName" value="ic_compose" />
+                                      <entry key="theme" value="HOLO_DARK" />
                                       <entry key="themeColor" value="ffffff" />
                                     </map>
                                   </option>

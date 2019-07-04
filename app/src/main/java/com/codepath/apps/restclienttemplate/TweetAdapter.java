@@ -53,6 +53,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         holder.tvTimeStamp.setText(tweet.relativeDate);
+        holder.tvLikes.setText(tweet.likes);
+        holder.tvComments.setText(tweet.comments);
+        holder.tvRetweets.setText(tweet.retweets);
 
         Glide.with(context)
                 .load(tweet.user.profileImageUrl)
@@ -89,6 +92,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvUsername;
         public TextView tvBody;
         public TextView tvTimeStamp;
+        public TextView tvLikes;
+        public TextView tvComments;
+        public TextView tvRetweets;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -99,10 +105,13 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTimeStamp = (TextView) itemView.findViewById(R.id.tvTimeStamp);
+            tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
+            tvComments = (TextView) itemView.findViewById(R.id.tvComments);
+            tvRetweets = (TextView) itemView.findViewById(R.id.tvRetweets);
         }
     }
 
-
+    //stack overflow code
     public static class CircleTransform extends BitmapTransformation {
         public CircleTransform(Context context) {
             super(context);
@@ -119,7 +128,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             int x = (source.getWidth() - size) / 2;
             int y = (source.getHeight() - size) / 2;
 
-            // TODO this could be acquired from the pool too
+
             Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);
 
             Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);

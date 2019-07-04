@@ -6,8 +6,8 @@
         android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
         android:onClick="onComposeAction"
-        app:showAsAction="ifRoom"
-        android:title="Compose">
+        android:title="Compose"
+        app:showAsAction="ifRoom">
 
     </item>
 
