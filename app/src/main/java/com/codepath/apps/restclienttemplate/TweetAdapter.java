@@ -91,9 +91,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             Glide.with(context)
                     .load(tweet.imageUrl)
                     .into(holder.ivTweetImage);
-
-            Toast.makeText(context, tweet.imageUrl, Toast.LENGTH_LONG).show();
-
         }else{
             holder.ivTweetImage.setVisibility(View.GONE);
         }

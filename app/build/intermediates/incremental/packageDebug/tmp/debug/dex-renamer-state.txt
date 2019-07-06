@@ -1,4 +1,4 @@
-#Fri Jul 05 18:23:50 PDT 2019
+#Fri Jul 05 18:43:15 PDT 2019
 base.0=/Users/ruthanna/Desktop/AndroidCode/Twitter/codepath-twitter-app/app/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex

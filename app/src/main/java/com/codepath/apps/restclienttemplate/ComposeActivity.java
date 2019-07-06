@@ -21,7 +21,7 @@ public class ComposeActivity extends AppCompatActivity {
 
     public static final String RESULT_TWEET_KEY = "result_tweet";
     private TwitterClient client;
-    private String username;
+    private String username = "";
 
 
     @Override
@@ -38,7 +38,9 @@ public class ComposeActivity extends AppCompatActivity {
         // Pass relevant data back as a result
         String enteredTweet = etName.getText().toString();
         String newTweet = enteredTweet;
-        username = getIntent().getExtras().getString("user_name");
+        if (getIntent().hasExtra("user_name")){
+            username = getIntent().getExtras().getString("user_name");
+        }
         if (username.length() != 0){
             newTweet = "@" + username + " " + enteredTweet;
         }else{
