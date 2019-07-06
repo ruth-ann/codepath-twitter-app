@@ -52,12 +52,46 @@ public class Tweet$$Parcelable
             parcel$$1 .writeInt(identityMap$$0 .put(tweet$$1));
             parcel$$1 .writeLong(tweet$$1 .uid);
             parcel$$1 .writeString(tweet$$1 .createdAt);
-            parcel$$1 .writeString(tweet$$1 .comments);
+            if (tweet$$1 .comments == null) {
+                parcel$$1 .writeInt(-1);
+            } else {
+                parcel$$1 .writeInt(1);
+                parcel$$1 .writeInt(tweet$$1 .comments);
+            }
+            parcel$$1 .writeString(tweet$$1 .imageUrl);
             parcel$$1 .writeString(tweet$$1 .relativeDate);
+            if (tweet$$1 .hasMedia == null) {
+                parcel$$1 .writeInt(-1);
+            } else {
+                parcel$$1 .writeInt(1);
+                parcel$$1 .writeInt((tweet$$1 .hasMedia? 1 : 0));
+            }
+            if (tweet$$1 .isFavorited == null) {
+                parcel$$1 .writeInt(-1);
+            } else {
+                parcel$$1 .writeInt(1);
+                parcel$$1 .writeInt((tweet$$1 .isFavorited? 1 : 0));
+            }
             parcel$$1 .writeString(tweet$$1 .body);
-            parcel$$1 .writeString(tweet$$1 .retweets);
+            if (tweet$$1 .retweets == null) {
+                parcel$$1 .writeInt(-1);
+            } else {
+                parcel$$1 .writeInt(1);
+                parcel$$1 .writeInt(tweet$$1 .retweets);
+            }
+            if (tweet$$1 .isRetweeted == null) {
+                parcel$$1 .writeInt(-1);
+            } else {
+                parcel$$1 .writeInt(1);
+                parcel$$1 .writeInt((tweet$$1 .isRetweeted? 1 : 0));
+            }
             com.codepath.apps.restclienttemplate.models.User$$Parcelable.write(tweet$$1 .user, parcel$$1, flags$$0, identityMap$$0);
-            parcel$$1 .writeString(tweet$$1 .likes);
+            if (tweet$$1 .likes == null) {
+                parcel$$1 .writeInt(-1);
+            } else {
+                parcel$$1 .writeInt(1);
+                parcel$$1 .writeInt(tweet$$1 .likes);
+            }
         }
     }
 
@@ -85,13 +119,59 @@ public class Tweet$$Parcelable
             identityMap$$1 .put(reservation$$0, tweet$$4);
             tweet$$4 .uid = parcel$$3 .readLong();
             tweet$$4 .createdAt = parcel$$3 .readString();
-            tweet$$4 .comments = parcel$$3 .readString();
+            int int$$0 = parcel$$3 .readInt();
+            java.lang.Integer integer$$0;
+            if (int$$0 < 0) {
+                integer$$0 = null;
+            } else {
+                integer$$0 = parcel$$3 .readInt();
+            }
+            tweet$$4 .comments = integer$$0;
+            tweet$$4 .imageUrl = parcel$$3 .readString();
             tweet$$4 .relativeDate = parcel$$3 .readString();
+            int int$$1 = parcel$$3 .readInt();
+            java.lang.Boolean boolean$$0;
+            if (int$$1 < 0) {
+                boolean$$0 = null;
+            } else {
+                boolean$$0 = (parcel$$3 .readInt() == 1);
+            }
+            tweet$$4 .hasMedia = boolean$$0;
+            int int$$2 = parcel$$3 .readInt();
+            java.lang.Boolean boolean$$1;
+            if (int$$2 < 0) {
+                boolean$$1 = null;
+            } else {
+                boolean$$1 = (parcel$$3 .readInt() == 1);
+            }
+            tweet$$4 .isFavorited = boolean$$1;
             tweet$$4 .body = parcel$$3 .readString();
-            tweet$$4 .retweets = parcel$$3 .readString();
+            int int$$3 = parcel$$3 .readInt();
+            java.lang.Integer integer$$1;
+            if (int$$3 < 0) {
+                integer$$1 = null;
+            } else {
+                integer$$1 = parcel$$3 .readInt();
+            }
+            tweet$$4 .retweets = integer$$1;
+            int int$$4 = parcel$$3 .readInt();
+            java.lang.Boolean boolean$$2;
+            if (int$$4 < 0) {
+                boolean$$2 = null;
+            } else {
+                boolean$$2 = (parcel$$3 .readInt() == 1);
+            }
+            tweet$$4 .isRetweeted = boolean$$2;
             User user$$0 = com.codepath.apps.restclienttemplate.models.User$$Parcelable.read(parcel$$3, identityMap$$1);
             tweet$$4 .user = user$$0;
-            tweet$$4 .likes = parcel$$3 .readString();
+            int int$$5 = parcel$$3 .readInt();
+            java.lang.Integer integer$$2;
+            if (int$$5 < 0) {
+                integer$$2 = null;
+            } else {
+                integer$$2 = parcel$$3 .readInt();
+            }
+            tweet$$4 .likes = integer$$2;
             com.codepath.apps.restclienttemplate.models.Tweet tweet$$3 = tweet$$4;
             identityMap$$1 .put(identity$$1, tweet$$3);
             return tweet$$3;

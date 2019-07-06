@@ -28,9 +28,13 @@ public class TimelineActivity extends AppCompatActivity {
     private TwitterClient client;
     private SwipeRefreshLayout swipeContainer;
     private final int REQUEST_CODE = 40;
+
     TweetAdapter tweetAdapter;
     ArrayList<Tweet> tweets;
     RecyclerView rvTweets;
+    MenuItem miActionProgressItem;
+    private EndlessRecyclerViewScrollListener scrollListener;
+    long maxId = 0;
 
 
     @Override
@@ -48,11 +52,21 @@ public class TimelineActivity extends AppCompatActivity {
         //construct the adapter from this datasource
         tweetAdapter = new TweetAdapter(tweets);
         //RecyclerView setup (layout manager, use adapter)
-        rvTweets.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvTweets.setLayoutManager(linearLayoutManager);
         //set the adapter
         rvTweets.setAdapter(tweetAdapter);
 
-        populateTimeline();
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextDataFromApi(page);
+            }
+        };
+        // Adds the scroll listener to RecyclerView
+        rvTweets.addOnScrollListener(scrollListener);
 
         // Lookup the swipe container view
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
@@ -82,16 +96,27 @@ public class TimelineActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_tweets, menu);
+
+
         return true;
+
     }
 
     public void onComposeAction(MenuItem mi) {
         //open composeActivity
        Intent composeTweet = new Intent (TimelineActivity.this, ComposeActivity.class);
+      // composeTweet.putExtra();
        startActivityForResult(composeTweet, REQUEST_CODE); //rename this
     }
 
-
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        populateTimeline(maxId);
+        // Return to finish
+        return super.onPrepareOptionsMenu(menu);
+    }
 
 
     @Override
@@ -114,20 +139,21 @@ public class TimelineActivity extends AppCompatActivity {
 
 
 
-    private void populateTimeline(){
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+    private void populateTimeline(long maxId){
+        showProgressBar();
+        client.getHomeTimeline(maxId, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("TwitterClient", response.toString());
-
+                hideProgressBar();
 
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 //Log.d("TwitterClient", response.toString());
-                Toast.makeText(TimelineActivity.this, "got array", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(TimelineActivity.this, "got array", Toast.LENGTH_LONG).show();
 
                 //iterate through the JSON array
                 // for each entry, deserializer the JSON object
@@ -135,7 +161,7 @@ public class TimelineActivity extends AppCompatActivity {
                     //convert each object to a Tweet model
                     //add that Tweet model to our data source
                     //notify the adapter that we've added an item
-                    Toast.makeText(TimelineActivity.this, "got in for loop", Toast.LENGTH_LONG).show();
+                   // Toast.makeText(TimelineActivity.this, "got in for loop", Toast.LENGTH_LONG).show();
                     try{
                         JSONObject single = response.getJSONObject(i);
                         Tweet tweet = Tweet.fromJSON(single);
@@ -143,18 +169,19 @@ public class TimelineActivity extends AppCompatActivity {
                         Toast.makeText(TimelineActivity.this, "Tweet successfully populated!", Toast.LENGTH_LONG).show();
                         tweetAdapter.notifyItemInserted(tweets.size() - 1);
                     }catch (JSONException e){
-                        Toast.makeText(TimelineActivity.this, "got in for catch", Toast.LENGTH_LONG).show();
+                      //  Toast.makeText(TimelineActivity.this, "got in for catch", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                     }
 
                 }
 
-
+                hideProgressBar();
 
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                hideProgressBar();
                 Log.d("TwitterClient", responseString);
 
                 throwable.printStackTrace();
@@ -162,6 +189,7 @@ public class TimelineActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                hideProgressBar();
                 Log.d("TwitterClient", errorResponse.toString());
 
 
@@ -169,6 +197,7 @@ public class TimelineActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                hideProgressBar();
                 Log.d("TwitterClient", errorResponse.toString());
 
 
@@ -184,7 +213,8 @@ public class TimelineActivity extends AppCompatActivity {
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+
+        client.getHomeTimeline(maxId, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
@@ -192,7 +222,7 @@ public class TimelineActivity extends AppCompatActivity {
                 // Remember to CLEAR OUT old items before appending in the new ones
                 tweetAdapter.clear();
                 // ...the data has come back, add new items to your adapter...
-                populateTimeline();
+                populateTimeline(maxId);
                 Log.d("RefreshResponse", response.toString());
                // tweetAdapter.addAll(response);
                 // Now we call setRefreshing(false) to signal refresh has finished
@@ -204,7 +234,30 @@ public class TimelineActivity extends AppCompatActivity {
                 Log.d("Timeline fetch error", "Fetch timeline error: " + e.toString());
             }
         });
+
     }
+
+    public void showProgressBar() {
+        // Show progress item
+        miActionProgressItem.setVisible(true);
+    }
+
+    public void hideProgressBar() {
+        // Hide progress item
+        miActionProgressItem.setVisible(false);
+    }
+
+    public void loadNextDataFromApi(int offset) {
+
+        maxId = tweets.get(tweets.size() - 1).uid;
+        populateTimeline(maxId);
+        // Send an API request to retrieve appropriate paginated data
+        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+        //  --> Deserialize and construct new model objects from the API response
+        //  --> Append the new data objects to the existing set of items inside the array of items
+        //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
+    }
+
 }
 
 

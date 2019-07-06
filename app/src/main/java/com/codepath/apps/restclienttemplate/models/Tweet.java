@@ -3,6 +3,7 @@ package com.codepath.apps.restclienttemplate.models;
 import android.text.format.DateUtils;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcel;
@@ -15,15 +16,18 @@ import java.util.Locale;
 public class Tweet {
 
     //attributes
-    //do I need to make these fields private
     public String body;
     public long uid; //database ID for the tweet
     public User user;
     public String createdAt;
     public String relativeDate;
-    public String retweets;
-    public String likes;
-    public String comments;
+    public Integer retweets;
+    public Integer likes;
+    public Integer comments;
+    public String imageUrl;
+    public Boolean hasMedia;
+    public Boolean isFavorited;
+    public Boolean isRetweeted;
 
     public Tweet(){
 
@@ -32,6 +36,7 @@ public class Tweet {
     //deserialize the JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
+        JSONObject entities;
 
         //extract the values from JSON
         tweet.body = jsonObject.getString("text");
@@ -40,9 +45,21 @@ public class Tweet {
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
         Log.i("TwitterApp", jsonObject.toString());
         tweet.relativeDate = getRelativeTimeAgo(tweet.createdAt);
-        tweet.likes = jsonObject.getString("favorite_count");
-        tweet.retweets = jsonObject.getString("retweet_count");
-       // tweet.comments = jsonObject.getString("reply_count");
+        tweet.likes = jsonObject.getInt("favorite_count");
+        tweet.retweets = jsonObject.getInt("retweet_count");
+        tweet.hasMedia = false;
+        tweet.isFavorited = jsonObject.getBoolean("favorited");
+        tweet.isRetweeted = jsonObject.getBoolean("retweeted");
+        entities = jsonObject.getJSONObject("entities");
+        if (entities.has("media")){
+            tweet.hasMedia = true;
+            JSONArray media;
+            media = entities.getJSONArray("media");
+            tweet.imageUrl = media.getJSONObject(0).getString("media_url");
+
+        }
+       // tweet.imageUrl = jsonObject.getS
+       //ra tweet.comments = jsonObject.getString("reply_count");
         return tweet;
 
 
@@ -65,4 +82,6 @@ public class Tweet {
 
         return relativeDate;
     }
+
+
 }

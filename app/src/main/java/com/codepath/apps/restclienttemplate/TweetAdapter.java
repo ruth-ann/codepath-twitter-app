@@ -1,28 +1,42 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.List;
 
+import cz.msebera.android.httpclient.Header;
+
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
 
-    private List<Tweet> mTweets;
-    Context context;
+    public final static String TAG = "TweetAdapter";
+    //not static
+    private  List<Tweet> mTweets;
+    //not static
+     Context context;
+     TwitterClient client;
     //pass in the Tweets array in the constructor
     public TweetAdapter(List<Tweet> tweets){
         mTweets = tweets;
@@ -34,6 +48,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
+        client = TwitterApp.getRestClient(context);
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View tweetView = inflater.inflate(R.layout.item_tweet, parent, false);
@@ -45,22 +60,142 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     //bind the values based on the position of the element
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         //get the data according to position
-        Tweet tweet =  mTweets.get(position);
+        final Tweet tweet =  mTweets.get(position);
 
         //populate the views according to this data
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         holder.tvTimeStamp.setText(tweet.relativeDate);
-        holder.tvLikes.setText(tweet.likes);
-        holder.tvComments.setText(tweet.comments);
-        holder.tvRetweets.setText(tweet.retweets);
+        holder.tvLikes.setText(tweet.likes.toString());
+    //    holder.tvComments.setText(tweet.comments.toString());
+        holder.tvRetweets.setText(tweet.retweets.toString());
+        if (tweet.isRetweeted){
+            holder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
+        }else{
+            holder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
+        }
+
+        if (tweet.isFavorited){
+            holder.ibLike.setImageResource(R.drawable.ic_vector_heart);
+        }else{
+            holder.ibLike.setImageResource(R.drawable.ic_vector_heart_stroke);
+        }
 
         Glide.with(context)
                 .load(tweet.user.profileImageUrl)
                 .transform(new CircleTransform(context))
                 .into(holder.ivProfileImage);
+
+        if (tweet.hasMedia){
+            Glide.with(context)
+                    .load(tweet.imageUrl)
+                    .into(holder.ivTweetImage);
+
+            Toast.makeText(context, tweet.imageUrl, Toast.LENGTH_LONG).show();
+
+        }else{
+            holder.ivTweetImage.setVisibility(View.GONE);
+        }
+
+        holder.ibLike.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (tweet.isFavorited){
+                    client.unFavoriteTweet(tweet.uid, new JsonHttpResponseHandler());
+                    holder.ibLike.setImageResource(R.drawable.ic_vector_heart_stroke);
+                    tweet.isFavorited = false;
+                    tweet.likes--;
+                    holder.tvLikes.setText(Integer.toString(tweet.likes));
+
+                }else{
+                    client.favoriteTweet(tweet.uid, new JsonHttpResponseHandler());
+                    holder.ibLike.setImageResource(R.drawable.ic_vector_heart);
+                    tweet.isFavorited = true;
+                    tweet.likes++;
+                    holder.tvLikes.setText(Integer.toString(tweet.likes));
+                }
+
+            }
+        });
+
+        holder.ibRetweet.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if (tweet.isRetweeted){
+
+                    client.unRetweet(tweet.uid, new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            super.onSuccess(statusCode, headers, response);
+                        }
+
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                            super.onSuccess(statusCode, headers, response);
+                        }
+
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                            super.onSuccess(statusCode, headers, responseString);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            super.onFailure(statusCode, headers, throwable, errorResponse);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                            super.onFailure(statusCode, headers, throwable, errorResponse);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            super.onFailure(statusCode, headers, responseString, throwable);
+                        }
+                    });
+
+
+
+
+                    holder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet_stroke);
+                    tweet.isRetweeted = false;
+                    tweet.retweets--;
+                    holder.tvRetweets.setText(Integer.toString(tweet.retweets));
+
+                }else{
+
+                    client.retweet(tweet.uid,  new JsonHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                            super.onSuccess(statusCode, headers, response);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                            super.onFailure(statusCode, headers, throwable, errorResponse);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                            super.onFailure(statusCode, headers, throwable, errorResponse);
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                            super.onFailure(statusCode, headers, responseString, throwable);
+                        }
+                    });
+                    holder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
+                    tweet.isRetweeted = true;
+                    tweet.retweets++;
+                    holder.tvRetweets.setText(Integer.toString(tweet.retweets));
+                }
+
+            }
+        });
 
     }
 
@@ -87,14 +222,18 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     //create ViewHolder class
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView ivProfileImage;
         public TextView tvUsername;
         public TextView tvBody;
         public TextView tvTimeStamp;
         public TextView tvLikes;
-        public TextView tvComments;
         public TextView tvRetweets;
+        public ImageView ivTweetImage;
+
+        public ImageButton ibLike;
+        public ImageButton ibRetweet;
+        public ImageButton ibComment;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -106,10 +245,54 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTimeStamp = (TextView) itemView.findViewById(R.id.tvTimeStamp);
             tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
-            tvComments = (TextView) itemView.findViewById(R.id.tvComments);
             tvRetweets = (TextView) itemView.findViewById(R.id.tvRetweets);
+            ivTweetImage = (ImageView) itemView.findViewById(R.id.ivTweetImage);
+            ibLike = (ImageButton) itemView.findViewById(R.id.ibLike);
+            ibRetweet = (ImageButton) itemView.findViewById(R.id.ibRetweet);
+            ibComment = (ImageButton) itemView.findViewById(R.id.ibComment);
+            ibComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int position = getAdapterPosition();
+                    //make sure the position is valid (that it exists in the view
+                    if (position != RecyclerView.NO_POSITION){
+                        Tweet tweet = mTweets.get(position);
+                        long tweetUid = tweet.uid;
+                        Intent replyTweet = new Intent (context, ComposeActivity.class);
+                        replyTweet.putExtra("user_name", tweet.user.screenName);
+                        context.startActivity(replyTweet);
+
+
+                    }
+
+                }
+            });
+
+
+
+
+         /*   ibComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int position = getAdapterPosition();
+                    //make sure the position is valid (that it exists in the view
+                    if (position != RecyclerView.NO_POSITION){
+                        Tweet tweet = mTweets.get(position);
+                        long tweetUid = tweet.uid;
+                        Intent replyTweet = new Intent (context, ComposeActivity.class);
+                        context.startActivity(composeTweet); //rename this
+
+
+                    }
+                }
+            });;*/
         }
+
+
+
     }
+
+
 
     //stack overflow code
     public static class CircleTransform extends BitmapTransformation {
@@ -150,5 +333,16 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         }
     }
 
+
+    //handle errors, log and alert user
+    private void logError(String message, Throwable error, boolean alertUser){
+        //always log the error
+        Log.e(TAG, message, error);
+        //alert the user to avoid silent errors
+        if (alertUser){
+            //show a long toast with the error message
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        }
+    }
 
 }

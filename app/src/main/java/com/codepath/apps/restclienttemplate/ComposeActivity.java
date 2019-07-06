@@ -21,9 +21,8 @@ public class ComposeActivity extends AppCompatActivity {
 
     public static final String RESULT_TWEET_KEY = "result_tweet";
     private TwitterClient client; //we just maintain one client and it re references the existing client
+    private String username;
 
-    //alternative
-    //setonclick listener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +36,19 @@ public class ComposeActivity extends AppCompatActivity {
         // Prepare data intent
         Intent intent = new Intent();
         // Pass relevant data back as a result
-        String newTweet = etName.getText().toString();
+        String enteredTweet = etName.getText().toString();
+        String newTweet = enteredTweet;
+        /*final String*/ username = getIntent().getExtras().getString("user_name");
+        if (username.length() != 0){
+            newTweet = "@" + username + " " + enteredTweet;
+        }else{
+            newTweet = enteredTweet;
+        }
+
         intent.putExtra("etNewTweet", newTweet);
         intent.putExtra("code", 200); // ints work too
         // Activity finished ok, return the data
         setResult(RESULT_OK, intent); // set result code and bundle data for response
-
 
         makeTweet(newTweet);
 
@@ -59,7 +65,6 @@ public class ComposeActivity extends AppCompatActivity {
                     //return result to calling activity
                     Intent resultData = new Intent();
                     resultData.putExtra("new_tweet", Parcels.wrap(tweet));
-                    //do the parcelable thing
                     setResult(RESULT_OK, resultData);
                     finish();
 

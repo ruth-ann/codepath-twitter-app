@@ -1032,7 +1032,10 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_retweet
+drawable ic_vector_heart
 drawable ic_vector_heart_stroke
+drawable ic_vector_retweet
+drawable ic_vector_retweet_stroke
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1136,18 +1139,19 @@ id group_divider
 id groups
 id home
 id homeAsUp
+id ibComment
+id ibLike
+id ibRetweet
 id icon
 id icon_group
 id ifRoom
 id image
-id imageButton3
-id imageButton4
-id imageButton5
 id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
 id ivProfileImage
+id ivTweetImage
 id labeled
 id largeLabel
 id left
@@ -1158,6 +1162,7 @@ id list_item
 id masked
 id media_actions
 id message
+id miActionProgress
 id miCompose
 id middle
 id mini
@@ -1177,6 +1182,7 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id pbProgressAction
 id percent
 id pin
 id progress_circular
@@ -1318,6 +1324,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout action_view_progress
 layout activity_compose
 layout activity_login
 layout activity_timeline
