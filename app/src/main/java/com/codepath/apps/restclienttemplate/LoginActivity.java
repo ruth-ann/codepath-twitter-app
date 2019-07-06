@@ -18,14 +18,10 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		//ra allows you to create a name in the table
 		final SampleModel sampleModel = new SampleModel();
 		sampleModel.setName("CodePath");
-		//ra gives you access to the dao object
 		final SampleModelDao sampleModelDao = ((TwitterApp) getApplicationContext()).getMyDatabase().sampleModelDao();
 
-
-		//ra room library allows all database stuff to be done on bg thread
 		AsyncTask<SampleModel, Void, Void> task  = new AsyncTask<SampleModel, Void, Void>() {
 			@Override
 			protected Void doInBackground(SampleModel... sampleModels) {
@@ -33,7 +29,7 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 				return null;
 			};
 		};
-		task.execute(sampleModel); //execute passes it in
+		task.execute(sampleModel);
 	}
 
 
@@ -48,8 +44,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 	// i.e Display application "homepage"
 	@Override
 	public void onLoginSuccess() {
-		//ra triggered when oauth flow is successfully completed
-		//Toast.makeText(this, "Success", Toast.LENGTH_LONG).show();
 		Intent i = new Intent(this, TimelineActivity.class);
 		startActivity(i);
 	}

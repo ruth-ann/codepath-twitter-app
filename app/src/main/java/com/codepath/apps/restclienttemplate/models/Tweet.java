@@ -58,8 +58,6 @@ public class Tweet {
             tweet.imageUrl = media.getJSONObject(0).getString("media_url");
 
         }
-       // tweet.imageUrl = jsonObject.getS
-       //ra tweet.comments = jsonObject.getString("reply_count");
         return tweet;
 
 

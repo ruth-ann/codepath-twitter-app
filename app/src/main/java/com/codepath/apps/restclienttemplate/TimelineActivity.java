@@ -105,7 +105,6 @@ public class TimelineActivity extends AppCompatActivity {
     public void onComposeAction(MenuItem mi) {
         //open composeActivity
        Intent composeTweet = new Intent (TimelineActivity.this, ComposeActivity.class);
-      // composeTweet.putExtra();
        startActivityForResult(composeTweet, REQUEST_CODE); //rename this
     }
 
@@ -132,7 +131,7 @@ public class TimelineActivity extends AppCompatActivity {
             tweetAdapter.notifyItemInserted(0);
             rvTweets.scrollToPosition(0);
 
-            // Toast the name to display temporarily on screen
+            // Message to let the user know that a tweet has been successfully made
             Toast.makeText(this, "Tweet successfully made!", Toast.LENGTH_SHORT).show();
         }
     }
@@ -152,24 +151,18 @@ public class TimelineActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                //Log.d("TwitterClient", response.toString());
-              //  Toast.makeText(TimelineActivity.this, "got array", Toast.LENGTH_LONG).show();
-
                 //iterate through the JSON array
                 // for each entry, deserializer the JSON object
                 for (int i = 0; i < response.length(); i++) {
                     //convert each object to a Tweet model
                     //add that Tweet model to our data source
                     //notify the adapter that we've added an item
-                   // Toast.makeText(TimelineActivity.this, "got in for loop", Toast.LENGTH_LONG).show();
                     try{
                         JSONObject single = response.getJSONObject(i);
                         Tweet tweet = Tweet.fromJSON(single);
                         tweets.add(tweet);
-                        Toast.makeText(TimelineActivity.this, "Tweet successfully populated!", Toast.LENGTH_LONG).show();
                         tweetAdapter.notifyItemInserted(tweets.size() - 1);
                     }catch (JSONException e){
-                      //  Toast.makeText(TimelineActivity.this, "got in for catch", Toast.LENGTH_LONG).show();
                         e.printStackTrace();
                     }
 

@@ -20,14 +20,14 @@ import cz.msebera.android.httpclient.Header;
 public class ComposeActivity extends AppCompatActivity {
 
     public static final String RESULT_TWEET_KEY = "result_tweet";
-    private TwitterClient client; //we just maintain one client and it re references the existing client
+    private TwitterClient client;
     private String username;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        client = TwitterApp.getRestClient(this); //do i need this call here again?
+        client = TwitterApp.getRestClient(this);
         setContentView(R.layout.activity_compose);
     }
 
@@ -38,7 +38,7 @@ public class ComposeActivity extends AppCompatActivity {
         // Pass relevant data back as a result
         String enteredTweet = etName.getText().toString();
         String newTweet = enteredTweet;
-        /*final String*/ username = getIntent().getExtras().getString("user_name");
+        username = getIntent().getExtras().getString("user_name");
         if (username.length() != 0){
             newTweet = "@" + username + " " + enteredTweet;
         }else{
@@ -55,7 +55,9 @@ public class ComposeActivity extends AppCompatActivity {
 
         finish(); // closes the activity, pass data to parent
     }
-    //ra check this part, return and error handling
+
+
+    //function sends tweet through the TwitterClient
     private void makeTweet(String tweetText){
         client.sendTweet(tweetText, new JsonHttpResponseHandler() {
             @Override

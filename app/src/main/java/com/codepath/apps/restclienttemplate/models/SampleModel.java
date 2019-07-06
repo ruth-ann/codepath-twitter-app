@@ -13,7 +13,7 @@ import org.json.JSONObject;
  * https://github.com/codepath/android_guides/wiki/Room-Guide
  *
  */
-@Entity //ra , locally persistent table is defined here and referenced in MyDatabase using entities through room
+@Entity
 public class SampleModel {
 
 	//unique identifier for the row

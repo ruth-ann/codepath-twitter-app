@@ -69,7 +69,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvBody.setText(tweet.body);
         holder.tvTimeStamp.setText(tweet.relativeDate);
         holder.tvLikes.setText(tweet.likes.toString());
-    //    holder.tvComments.setText(tweet.comments.toString());
         holder.tvRetweets.setText(tweet.retweets.toString());
         if (tweet.isRetweeted){
             holder.ibRetweet.setImageResource(R.drawable.ic_vector_retweet);
@@ -254,7 +253,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 @Override
                 public void onClick(View v) {
                     final int position = getAdapterPosition();
-                    //make sure the position is valid (that it exists in the view
+                    //make sure the position is valid (that it exists in the view)
                     if (position != RecyclerView.NO_POSITION){
                         Tweet tweet = mTweets.get(position);
                         long tweetUid = tweet.uid;
@@ -268,30 +267,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 }
             });
 
-
-
-
-         /*   ibComment.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final int position = getAdapterPosition();
-                    //make sure the position is valid (that it exists in the view
-                    if (position != RecyclerView.NO_POSITION){
-                        Tweet tweet = mTweets.get(position);
-                        long tweetUid = tweet.uid;
-                        Intent replyTweet = new Intent (context, ComposeActivity.class);
-                        context.startActivity(composeTweet); //rename this
-
-
-                    }
-                }
-            });;*/
         }
 
-
-
     }
-
 
 
     //stack overflow code
